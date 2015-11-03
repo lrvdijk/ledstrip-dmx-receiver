@@ -9,3 +9,7 @@
 *.lst
 *.map
 *.bck
+*.svg
+*.kicad_pcb-bak
+gerber/
+svg/
