@@ -253,7 +253,7 @@ U 1 1 56312609
 P 5800 3650
 F 0 "R4" V 5880 3650 40  0000 C CNN
 F 1 "10k" V 5807 3651 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 5730 3650 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 5730 3650 30  0001 C CNN
 F 3 "" H 5800 3650 30  0000 C CNN
 	1    5800 3650
 	0    1    1    0   
@@ -275,7 +275,7 @@ U 1 1 5635F831
 P 6400 4350
 F 0 "R5" V 6480 4350 40  0000 C CNN
 F 1 "10k" V 6407 4351 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 6330 4350 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 6330 4350 30  0001 C CNN
 F 3 "" H 6400 4350 30  0000 C CNN
 	1    6400 4350
 	1    0    0    -1  
@@ -544,7 +544,7 @@ U 1 1 5636CF37
 P 2500 6150
 F 0 "R1" V 2580 6150 40  0000 C CNN
 F 1 "680" V 2507 6151 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 2430 6150 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 2430 6150 30  0001 C CNN
 F 3 "" H 2500 6150 30  0000 C CNN
 	1    2500 6150
 	1    0    0    -1  
@@ -555,7 +555,7 @@ U 1 1 5636D029
 P 3300 6150
 F 0 "R2" V 3380 6150 40  0000 C CNN
 F 1 "680" V 3307 6151 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 3230 6150 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 3230 6150 30  0001 C CNN
 F 3 "" H 3300 6150 30  0000 C CNN
 	1    3300 6150
 	1    0    0    -1  
@@ -566,7 +566,7 @@ U 1 1 5636D11F
 P 4100 6150
 F 0 "R3" V 4180 6150 40  0000 C CNN
 F 1 "680" V 4107 6151 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 4030 6150 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 4030 6150 30  0001 C CNN
 F 3 "" H 4100 6150 30  0000 C CNN
 	1    4100 6150
 	1    0    0    -1  
@@ -819,10 +819,10 @@ U 1 1 5637B739
 P 6750 1500
 F 0 "R6" V 6830 1500 40  0000 C CNN
 F 1 "10k" V 6757 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 6680 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 6680 1500 30  0001 C CNN
 F 3 "" H 6750 1500 30  0000 C CNN
 	1    6750 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R7
@@ -830,10 +830,10 @@ U 1 1 5637B842
 P 6950 1500
 F 0 "R7" V 7030 1500 40  0000 C CNN
 F 1 "10k" V 6957 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 6880 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 6880 1500 30  0001 C CNN
 F 3 "" H 6950 1500 30  0000 C CNN
 	1    6950 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R8
@@ -841,10 +841,10 @@ U 1 1 5637B8A5
 P 7150 1500
 F 0 "R8" V 7230 1500 40  0000 C CNN
 F 1 "10k" V 7157 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 7080 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7080 1500 30  0001 C CNN
 F 3 "" H 7150 1500 30  0000 C CNN
 	1    7150 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R9
@@ -852,10 +852,10 @@ U 1 1 5637B8EA
 P 7350 1500
 F 0 "R9" V 7430 1500 40  0000 C CNN
 F 1 "10k" V 7357 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 7280 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7280 1500 30  0001 C CNN
 F 3 "" H 7350 1500 30  0000 C CNN
 	1    7350 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R10
@@ -863,10 +863,10 @@ U 1 1 5637B933
 P 7550 1500
 F 0 "R10" V 7630 1500 40  0000 C CNN
 F 1 "10k" V 7557 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 7480 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7480 1500 30  0001 C CNN
 F 3 "" H 7550 1500 30  0000 C CNN
 	1    7550 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R11
@@ -874,10 +874,10 @@ U 1 1 5637B97C
 P 7750 1500
 F 0 "R11" V 7830 1500 40  0000 C CNN
 F 1 "10k" V 7757 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 7680 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7680 1500 30  0001 C CNN
 F 3 "" H 7750 1500 30  0000 C CNN
 	1    7750 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R12
@@ -885,10 +885,10 @@ U 1 1 5637B9CB
 P 7950 1500
 F 0 "R12" V 8030 1500 40  0000 C CNN
 F 1 "10k" V 7957 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 7880 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7880 1500 30  0001 C CNN
 F 3 "" H 7950 1500 30  0000 C CNN
 	1    7950 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R13
@@ -896,10 +896,10 @@ U 1 1 5637BA1A
 P 8150 1500
 F 0 "R13" V 8230 1500 40  0000 C CNN
 F 1 "10k" V 8157 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 8080 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 8080 1500 30  0001 C CNN
 F 3 "" H 8150 1500 30  0000 C CNN
 	1    8150 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L R R14
@@ -907,10 +907,10 @@ U 1 1 5637BA69
 P 8350 1500
 F 0 "R14" V 8430 1500 40  0000 C CNN
 F 1 "10k" V 8357 1501 40  0000 C CNN
-F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM15mm" V 8280 1500 30  0001 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 8280 1500 30  0001 C CNN
 F 3 "" H 8350 1500 30  0000 C CNN
 	1    8350 1500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L +5V #PWR031
