@@ -13,3 +13,4 @@
 *.kicad_pcb-bak
 gerber/
 svg/
+.idea/
