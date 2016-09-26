@@ -52,13 +52,13 @@ int main() {
     uint8_t switch1 = 0;
     uint8_t switches = 0;
 
+    load_data_74hc165();
+    switch1 = (PINC & (1 << PC4)) == 0 ? 1 : 0;
+    switches = read_byte_74hc165();
+
+    dmxAddress = (switches << 1) | switch1;
+
     while(true) {
-        load_data_74hc165();
-        switch1 = (PINC & (1 << PC4)) == 0 ? 1 : 0;
-        switches = read_byte_74hc165();
-
-        dmxAddress = (switches << 1) | switch1;
-
         // Calculate the pulse widths
         volatile uint8_t& master = dmxData[0];
         if(master != 255) {
