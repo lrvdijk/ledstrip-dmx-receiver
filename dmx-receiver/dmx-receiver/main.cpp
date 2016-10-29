@@ -6,7 +6,7 @@
 #include "dmx.h"
 
 #define BAUD 250000
-#define DMX_UBBR (((F_CPU/16/BAUD)-1))
+#define DMX_UBBR F_CPU/16/BAUD-1
 
 // Four channels: master, R, G, B
 #define DMX_CHANNELS 4
@@ -86,6 +86,7 @@ ISR(USART_RX_vect) {
 
     uint8_t status = UCSR0A;
     uint8_t data = UDR0;
+    uint8_t state = (uint8_t) dmxState; // Read once from SRAM
 
     if(status & (1 << FE0)) {
         channelCounter = 0;
@@ -95,26 +96,28 @@ ISR(USART_RX_vect) {
 
     // Invalid state, wait for next break
     if(status & (1 << DOR0)) {
+        channelCounter = 0;
         dmxState = IDLE;
         return;
     }
 
-    if(dmxState == BREAK) {
+    if(state == BREAK) {
         // data is now the start code, we only accept a zero start code
         if(data == 0) {
             dmxState = CHANNELS;
         } else {
             dmxState = IDLE;
         }
-        return;
-    }
-
-    if(dmxState == CHANNELS) {
+    } else if(state == CHANNELS) {
         if(channelCounter >= dmxAddress && channelCounter < dmxAddress+DMX_CHANNELS) {
             uint8_t index = channelCounter - dmxAddress;
             dmxData[index] = data;
         }
 
-        channelCounter += 1;
+        if(channelCounter >= dmxAddress+DMX_CHANNELS) {
+            dmxState = IDLE;
+        } else {
+            channelCounter++;
+        }
     }
 }
