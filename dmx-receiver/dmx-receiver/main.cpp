@@ -31,15 +31,15 @@ int main() {
     // We use the two timers for PWM outputs
     // Setup timer 0
     // Phase correct PWM, inverting output at OC0A
-    // Clock divided by 8
+    // Clock divided by 256 (PWM frequency ~120 MHz)
     TCCR0A = (1 << COM0A1) | (1 << COM0B1) | (1 << WGM00);
-    TCCR0B = (1 << CS01);
+    TCCR0B = (1 << CS02);
 
     // Setup timer 1 (16 bit timer)
     // 8 bit phase correct PWM, inverting output at OC1A
-    // Clock divided by 8
+    // Clock divided by 256 (PWM frequency ~120 MHz)
     TCCR1A = (1 << COM1A1) | (1 << WGM10);
-    TCCR1B = (1 << CS11);
+    TCCR1B = (1 << CS12);
 
     // Initialize UART for DMX receiver
     init_uart(DMX_UBBR);
