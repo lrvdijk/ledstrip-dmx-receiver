@@ -13,7 +13,11 @@
 
 volatile uint16_t dmxAddress = 0;
 volatile DmxState dmxState = IDLE;
-volatile uint8_t dmxData[DMX_CHANNELS] = {0};
+volatile uint8_t dmxData[DMX_CHANNELS];
+
+volatile uint8_t red = 0;
+volatile uint8_t green = 0;
+volatile uint8_t blue = 0;
 
 
 int main() {
@@ -32,48 +36,48 @@ int main() {
     // Setup timer 0
     // Phase correct PWM, inverting output at OC0A
     // Clock divided by 256 (PWM frequency ~120 MHz)
-    TCCR0A = (1 << COM0A1) | (1 << COM0B1) | (1 << WGM00);
-    TCCR0B = (1 << CS02);
+    TCCR0A = (1 << COM0A1) | (1 << COM0B1) | (1 << WGM01) | (1 << WGM00);
+    TCCR0B = (1 << CS01);
+    TIMSK0 = (1 << TOIE0);
 
     // Setup timer 1 (16 bit timer)
     // 8 bit phase correct PWM, inverting output at OC1A
     // Clock divided by 256 (PWM frequency ~120 MHz)
-    TCCR1A = (1 << COM1A1) | (1 << WGM10);
-    TCCR1B = (1 << CS12);
+    TCCR1A = (1 << COM1A1) | (1 << WGM12) | (1 << WGM10);
+    TCCR1B = (1 << CS11);
+    TIMSK1 = (1 << TOIE1);
+
+
+    for(int i = 0; i < DMX_CHANNELS; i++) {
+        dmxData[i] = 0;
+    }
 
     // Initialize UART for DMX receiver
     init_uart(DMX_UBBR);
 
     // Enable interrupts again
     sei();
-    uint8_t red = 0;
-    uint8_t green = 0;
-    uint8_t blue = 0;
     uint8_t switch1 = 0;
     uint8_t switches = 0;
 
-    load_data_74hc165();
-    switch1 = (PINC & (1 << PC4)) == 0 ? 1 : 0;
-    switches = read_byte_74hc165();
-
-    dmxAddress = (switches << 1) | switch1;
-
     while(true) {
+        load_data_74hc165();
+        switch1 = (PINC & (1 << PC4)) == 0 ? 1 : 0;
+        switches = read_byte_74hc165();
+
+        dmxAddress = (switches << 1) | switch1;
+
         // Calculate the pulse widths
-        volatile uint8_t& master = dmxData[0];
-        if(master != 255) {
-            red = (dmxData[1] * master) / 255;
-            green = (dmxData[2] * master) / 255;
-            blue = (dmxData[3] * master) / 255;
+        uint8_t master = dmxData[0];
+        if(master < 255) {
+            red = ((uint16_t) dmxData[1] * master) / 255;
+            green = ((uint16_t) dmxData[2] * master) / 255;
+            blue = ((uint16_t) dmxData[3] * master) / 255;
         } else {
             red = dmxData[1];
             green = dmxData[2];
             blue = dmxData[3];
         }
-
-        OCR0A = red;
-        OCR0B = blue;
-        OCR1A = green;
     }
 
     return 0;
@@ -120,4 +124,13 @@ ISR(USART_RX_vect) {
             channelCounter++;
         }
     }
+}
+
+ISR(TIMER0_OVF_vect) {
+    OCR0A = red;
+    OCR0B = green;
+}
+
+ISR(TIMER1_OVF_vect) {
+    OCR1A = blue;
 }
