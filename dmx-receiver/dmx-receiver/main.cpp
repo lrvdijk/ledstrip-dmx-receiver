@@ -34,15 +34,15 @@ int main() {
 
     // We use the two timers for PWM outputs
     // Setup timer 0
-    // Phase correct PWM, inverting output at OC0A
-    // Clock divided by 256 (PWM frequency ~120 MHz)
+    // 8 bit fast PWM, non-inverting output on OC0A and OC0B, clock pre-scaler of 8
+    // Enable overflow interrupt
     TCCR0A = (1 << COM0A1) | (1 << COM0B1) | (1 << WGM01) | (1 << WGM00);
     TCCR0B = (1 << CS01);
     TIMSK0 = (1 << TOIE0);
 
     // Setup timer 1 (16 bit timer)
-    // 8 bit phase correct PWM, inverting output at OC1A
-    // Clock divided by 256 (PWM frequency ~120 MHz)
+    // 8 bit fast PWM, non-inverting output on OC1A, clock pre-scaler of 8
+    // Enable overflow interrupt
     TCCR1A = (1 << COM1A1) | (1 << WGM12) | (1 << WGM10);
     TCCR1B = (1 << CS11);
     TIMSK1 = (1 << TOIE1);
